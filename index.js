@@ -1,8 +1,8 @@
-var fs = require("fs");
-var axios = require("axios");
-var inquirer = require("inquirer");
+const fs = require("fs");
+const axios = require("axios");
+const inquirer = require("inquirer");
 
-var questions = [
+let questions = [
   {
     type: "input",
     message: "What is your GitHub username?",
@@ -51,25 +51,13 @@ var questions = [
   },
 ];
 
-inquirer.prompt(questions).then((foobar) => {
+inquirer.prompt(questions).then((answers) => {
   // console.log(answers);
-  // const answersStr = answers.join("\n");
-
-  // const api = `https://api.github.com/users/${answers.username}/repos?per_page=100`;
-  // axios.get(api).then((res) => {
-  //   const repoNames = res.data.map((repo) => repo.name);
-  //   const repoNamesStr = repoNames.join("\n");
-  const answersStr = JSON.stringify(foobar, null, "\t");
+  const answersStr = JSON.stringify(answers, null, "\t");
 
   fs.writeFile("readme.md", answersStr, (err) => {
     if (err) throw err;
-    // console.log(`Saved ${repoNames.length} repos`);
-    // console.log(repoNames);
-    // console.log(answersStr);
-    console.log(foobar);
+    console.log(answers);
     console.log(answersStr);
   });
-  // });
 });
-
-// module.exports = index;
