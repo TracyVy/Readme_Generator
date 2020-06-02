@@ -61,7 +61,7 @@ inquirer.prompt(questions).then((foobar) => {
   //   const repoNamesStr = repoNames.join("\n");
   const answersStr = JSON.stringify(foobar, null, "\t");
 
-  fs.writeFile("answers.txt", answersStr, (err) => {
+  fs.writeFile("readme.md", answersStr, (err) => {
     if (err) throw err;
     // console.log(`Saved ${repoNames.length} repos`);
     // console.log(repoNames);
