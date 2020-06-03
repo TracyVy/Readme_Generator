@@ -1,27 +1,11 @@
 {
-"username": "clear",
-"projectUrl": "abcd",
-"projectName": "efgh",
-"shortDescr": "ijkl",
-"licenseChoice": "MIT",
-"installCommand": "mnop",
-"testCommand": "qrst",
-"useNTK": "uvwx",
-"contributeNTK": "yznd"
+	"username": "TracyVy",
+	"projectUrl": "readme.com",
+	"projectName": "readme_project",
+	"shortDescr": "short description",
+	"licenseChoice": "MIT",
+	"installCommand": "npm install",
+	"testCommand": "node index.js",
+	"useNTK": "repo NTK",
+	"contributeNTK": "go head"
 }
-
-## Badge
-
-## Project Title
-
-## Description
-
-[Description](#shortDescr)
-
-## Table of Contents
-
-- [Installation](#installCommand)
-- [Usage](#useNTK)
-- [License](#licenseChoice)
-- [Contributing](#contributeNTK)
-- [Tests](#testCommand)
