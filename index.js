@@ -10,16 +10,6 @@ let questions = [
   },
   {
     type: "input",
-    message: "What is the URL to your project",
-    name: "projectUrl",
-  },
-  {
-    type: "input",
-    message: "What is the name of your project",
-    name: "projectName",
-  },
-  {
-    type: "input",
     message: "Please write a short description of your project",
     name: "shortDescr",
   },
@@ -41,52 +31,48 @@ let questions = [
   },
   {
     type: "input",
-    message: "What does the user need to know about using the repo?",
-    name: "useNTK",
-  },
-  {
-    type: "input",
     message: "What does the user need to know about contributing to the repo?",
     name: "contributeNTK",
   },
 ];
 
 inquirer.prompt(questions).then((answers) => {
-  console.log(answers);
-  // const api = `https://api.github.com/users/${answers.username}/repos?per_page=100`;
+  // console.log(answers);
+  const api = `https://api.github.com/users/${answers.username}/events/public`;
   const avatarURL = `https://avatars.githubusercontent.com/${answers.username}`;
-  const answersStr = JSON.stringify(answers, null, "\t");
   console.log(avatarURL);
-  // axios.get(api).then((res) => {
+  axios.get(api).then((res) => {
+    const repoURL = res.data[1].repo.url;
+    const projectName = res.data[1].repo.name;
+    const userEmail = res.data[1].payload;
+    console.log(repoURL);
+    console.log(projectName);
+    console.log(userEmail);
 
-  //   // console.log(res);
-  //   // const repoNames = res.data.map((repo) => repo.name);
-  //   // const repoNamesStr = repoNames.join("\n");
-  //   // console.log(repoNames);
-  //   // console.log(repoNamesStr);
+    let readmeTemplate = `
+    # Table of content
 
-  let avatarTemplate = `
-  # Table of content
+    ## Project Name
+    
 
-  ## Project Name
-  ${answers.projectName};
+    ## Project URL
+    
 
-  ## Project URL
-  ${answers.projectURL};
+    ## Short Description
+    ${answers.shortDescr};
 
-  ## Short Description
-  ${answers.shortDescr};
+    ## License Choice
+    ${answers.licenseChoice};
 
-  ## License Choice
-  ${answers.licenseChoice};
+    ## Install Command
+    ${answers.installCommand};
 
-  ## Install Command
-  ${answers.installCommand};
-
-  ![Avatar](${avatarURL})`;
-  console.log(avatarTemplate);
-  fs.writeFile("readme.md", avatarTemplate, (err) => {
-    if (err) throw err;
-    // console.log(answersStr);
+    ## Email
+    
+    ![Avatar](${avatarURL})`;
+    // console.log(readmeTemplate);
+    fs.writeFile("readme.md", readmeTemplate, (err) => {
+      if (err) throw err;
+    });
   });
 });

@@ -1,19 +1,21 @@
 
-  # Table of content
+    # Table of content
 
-  ## Project Name
-  name;
+    ## Project Name
+    
 
-  ## Project URL
-  undefined;
+    ## Project URL
+    
 
-  ## Short Description
-  description is short;
+    ## Short Description
+    short description;
 
-  ## License Choice
-  MIT;
+    ## License Choice
+    MIT;
 
-  ## Install Command
-  npm install;
+    ## Install Command
+    npm install;
 
-  ![Avatar](https://avatars.githubusercontent.com/TracyVy)
+    ## Email
+    
+    ![Avatar](https://avatars.githubusercontent.com/TracyVy)
