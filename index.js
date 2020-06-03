@@ -53,11 +53,20 @@ let questions = [
 
 inquirer.prompt(questions).then((answers) => {
   // console.log(answers);
+  const api = `https://api.github.com/users/${answers.username}/repos?per_page=100`;
   const answersStr = JSON.stringify(answers, null, "\t");
 
-  fs.writeFile("answers.txt", answersStr, (err) => {
-    if (err) throw err;
-    console.log(answers);
-    // console.log(answersStr);
+  axios.get(api).then((res) => {
+    //   console.log(res);
+    const repoNames = res.data.map((repo) => repo.name);
+    const repoNamesStr = repoNames.join("\n");
+    console.log(repoNames);
+    console.log(repoNamesStr);
+
+    fs.writeFile("readme.md", answersStr, (err) => {
+      if (err) throw err;
+      console.log(answers);
+      // console.log(answersStr);
+    });
   });
 });
