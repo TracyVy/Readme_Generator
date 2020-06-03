@@ -52,22 +52,41 @@ let questions = [
 ];
 
 inquirer.prompt(questions).then((answers) => {
-  // console.log(answers);
-  const api = `https://api.github.com/users/${answers.username}/repos?per_page=100`;
-  const avatar = `https://avatars.githubusercontent.com/${answers.username}`;
+  console.log(answers);
+  // const api = `https://api.github.com/users/${answers.username}/repos?per_page=100`;
+  const avatarURL = `https://avatars.githubusercontent.com/${answers.username}`;
   const answersStr = JSON.stringify(answers, null, "\t");
+  console.log(avatarURL);
+  // axios.get(api).then((res) => {
 
-  axios.get(api).then((res) => {
-    console.log(avatar);
-    // console.log(res);
-    const repoNames = res.data.map((repo) => repo.name);
-    const repoNamesStr = repoNames.join("\n");
-    // console.log(repoNames);
-    // console.log(repoNamesStr);
+  //   // console.log(res);
+  //   // const repoNames = res.data.map((repo) => repo.name);
+  //   // const repoNamesStr = repoNames.join("\n");
+  //   // console.log(repoNames);
+  //   // console.log(repoNamesStr);
 
-    fs.writeFile("readme.md", answersStr, (err) => {
-      if (err) throw err;
-      // console.log(answersStr);
-    });
+  let avatarTemplate = `
+  # Table of content
+
+  ## Project Name
+  ${answers.projectName};
+
+  ## Project URL
+  ${answers.projectURL};
+
+  ## Short Description
+  ${answers.shortDescr};
+
+  ## License Choice
+  ${answers.licenseChoice};
+
+  ## Install Command
+  ${answers.installCommand};
+
+  ![Avatar](${avatarURL})`;
+  console.log(avatarTemplate);
+  fs.writeFile("readme.md", avatarTemplate, (err) => {
+    if (err) throw err;
+    // console.log(answersStr);
   });
 });

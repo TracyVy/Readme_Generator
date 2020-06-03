@@ -1,11 +1,19 @@
-{
-	"username": "TracyVy",
-	"projectUrl": "readme.com",
-	"projectName": "readme_project",
-	"shortDescr": "short description",
-	"licenseChoice": "MIT",
-	"installCommand": "npm install",
-	"testCommand": "node index.js",
-	"useNTK": "repo NTK",
-	"contributeNTK": "go head"
-}
+
+  # Table of content
+
+  ## Project Name
+  name;
+
+  ## Project URL
+  undefined;
+
+  ## Short Description
+  description is short;
+
+  ## License Choice
+  MIT;
+
+  ## Install Command
+  npm install;
+
+  ![Avatar](https://avatars.githubusercontent.com/TracyVy)
