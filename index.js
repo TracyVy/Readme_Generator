@@ -29,11 +29,6 @@ let questions = [
     message: "What command should be run to run tests?",
     name: "testCommand",
   },
-  {
-    type: "input",
-    message: "What does the user need to know about contributing to the repo?",
-    name: "contributeNTK",
-  },
 ];
 
 inquirer.prompt(questions).then((answers) => {
@@ -44,32 +39,36 @@ inquirer.prompt(questions).then((answers) => {
   axios.get(api).then((res) => {
     const repoURL = res.data[1].repo.url;
     const projectName = res.data[1].repo.name;
-    const userEmail = res.data[1].payload;
+    const userEmail = res.data[1].payload.commits;
     console.log(repoURL);
     console.log(projectName);
     console.log(userEmail);
 
     let readmeTemplate = `
-    # Table of content
+  # Table of content
 
-    ## Project Name
+  ## Project Name
+  ${projectName}
+
+  ## Project URL
+  ${repoURL}
+
+  ## Short Description
+  ${answers.shortDescr};
+
+  ## License Choice
+  ${answers.licenseChoice};
+
+  ## Install Command
+  ${answers.installCommand};
+
+  ## Test Command
+  ${answers.testCommand}
+
+  ## Email
+  ${userEmail}
     
-
-    ## Project URL
-    
-
-    ## Short Description
-    ${answers.shortDescr};
-
-    ## License Choice
-    ${answers.licenseChoice};
-
-    ## Install Command
-    ${answers.installCommand};
-
-    ## Email
-    
-    ![Avatar](${avatarURL})`;
+  ![Avatar](${avatarURL})`;
     // console.log(readmeTemplate);
     fs.writeFile("readme.md", readmeTemplate, (err) => {
       if (err) throw err;

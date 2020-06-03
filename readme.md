@@ -1,21 +1,25 @@
 
-    # Table of content
+  # Table of content
 
-    ## Project Name
+  ## Project Name
+  TracyVy/Readme_Generator
+
+  ## Project URL
+  https://api.github.com/repos/TracyVy/Readme_Generator
+
+  ## Short Description
+  short description;
+
+  ## License Choice
+  MIT;
+
+  ## Install Command
+  npm install;
+
+  ## Test Command
+  npm test
+
+  ## Email
+  [object Object]
     
-
-    ## Project URL
-    
-
-    ## Short Description
-    short description;
-
-    ## License Choice
-    MIT;
-
-    ## Install Command
-    npm install;
-
-    ## Email
-    
-    ![Avatar](https://avatars.githubusercontent.com/TracyVy)
+  ![Avatar](https://avatars.githubusercontent.com/TracyVy)
