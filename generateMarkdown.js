@@ -2,14 +2,14 @@ const fs = require("fs");
 const axios = require("axios");
 let answers = require("./index");
 
-const api = `https://api.github.com/users/${answers.username}/repos?per_page=100`;
-
 axios.get(api).then((res) => {
+  const api = `https://api.github.com/users/${answers.username}/repos?per_page=100`;
   //   console.log(res);
   const repoNames = res.data.map((repo) => repo.name);
   const repoNamesStr = repoNames.join("\n");
-  console.log(`Saved ${repoNames.length} repos`);
-  console.log(`Here are the names of the repo: ${repoNamesStr}`);
+  console.log(repoNames);
+  //   console.log(`Saved ${repoNames.length} repos`);
+  //   console.log(`Here are the names of the repo: ${repoNamesStr}`);
 
   // function generateMarkdown(res) {
   //     return `

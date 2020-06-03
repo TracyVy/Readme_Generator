@@ -55,9 +55,9 @@ inquirer.prompt(questions).then((answers) => {
   // console.log(answers);
   const answersStr = JSON.stringify(answers, null, "\t");
 
-  fs.writeFile("readme.md", answersStr, (err) => {
+  fs.writeFile("answers.txt", answersStr, (err) => {
     if (err) throw err;
     console.log(answers);
-    console.log(answersStr);
+    // console.log(answersStr);
   });
 });
