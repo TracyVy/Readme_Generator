@@ -21,8 +21,7 @@
 ## Table of Contents
 
 - [Installation](#installCommand)
-
-* [Usage](#useNTK)
-* [License](#licenseChoice)
-* [Contributing](#contributeNTK)
-* [Tests](#testCommand)
+- [Usage](#useNTK)
+- [License](#licenseChoice)
+- [Contributing](#contributeNTK)
+- [Tests](#testCommand)
