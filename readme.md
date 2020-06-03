@@ -16,12 +16,13 @@
 
 ## Description
 
+[Description](#shortDescr)
+
 ## Table of Contents
 
 - [Installation](#installCommand)
 
-* [Usage]
-* [License]
-* [Contributing]
-* [Tests]
-* [Questions]
+* [Usage](#useNTK)
+* [License](#licenseChoice)
+* [Contributing](#contributeNTK)
+* [Tests](#testCommand)
