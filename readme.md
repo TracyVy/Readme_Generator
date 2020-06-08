@@ -20,18 +20,8 @@
   ### Usage
 
   ### License
-  MOZILLA;
-  ![License]((licenseChoice) => {
-  if (licenseChoice === "MIT") {
-    badgeURL = "https://img.shields.io/badge/License-MIT-yellow.svg";
-  } else if (licenseChoice === "IBM") {
-    badgeURL = "https://img.shields.io/badge/License-IPL%201.0-blue.svg";
-  } else if (licenseChoice === "MOZILLA") {
-    badgeURL = "https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg";
-  } else if (licenseChoice === "ODbL") {
-    badgeURL = "https://img.shields.io/badge/License-ODbL-brightgreen.svg";
-  }
-};
+  IBM;
+  ![License](https://img.shields.io/badge/License-IPL%201.0-blue.svg;
 
   ### Contributions
 

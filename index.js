@@ -32,13 +32,13 @@ let questions = [
 
 let badgeURL = (licenseChoice) => {
   if (licenseChoice === "MIT") {
-    badgeURL = "https://img.shields.io/badge/License-MIT-yellow.svg";
+    return "https://img.shields.io/badge/License-MIT-yellow.svg";
   } else if (licenseChoice === "IBM") {
-    badgeURL = "https://img.shields.io/badge/License-IPL%201.0-blue.svg";
+    return "https://img.shields.io/badge/License-IPL%201.0-blue.svg";
   } else if (licenseChoice === "MOZILLA") {
-    badgeURL = "https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg";
+    return "https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg";
   } else if (licenseChoice === "ODbL") {
-    badgeURL = "https://img.shields.io/badge/License-ODbL-brightgreen.svg";
+    return "https://img.shields.io/badge/License-ODbL-brightgreen.svg";
   }
 };
 
@@ -66,7 +66,7 @@ inquirer.prompt(questions).then((answers) => {
 
   ### License
   ${answers.licenseChoice};
-  ![License](${badgeURL};
+  ![License](${badgeURL(answers.licenseChoice)};
 
   ### Contributions
 
