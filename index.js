@@ -65,8 +65,9 @@ inquirer.prompt(questions).then((answers) => {
   ### Usage
 
   ### License
-  ${answers.licenseChoice};
-  ![License](${badgeURL(answers.licenseChoice)};
+  [![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)  
+`[![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)`
+
 
   ### Contributions
 
