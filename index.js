@@ -1,12 +1,11 @@
 const fs = require("fs");
-const axios = require("axios");
 const inquirer = require("inquirer");
 
 let questions = [
   {
     type: "input",
-    message: "What is your GitHub username?",
-    name: "username",
+    message: "What is the name of your project?",
+    name: "projectName",
   },
   {
     type: "input",
@@ -16,7 +15,7 @@ let questions = [
   {
     type: "list",
     message: "What kind of license should you have?",
-    choices: ["MIT", "APACHE", "MOZILLA", "BOOST SOFTWARE"],
+    choices: ["MIT", "IBM", "MOZILLA", "ODbl"],
     name: "licenseChoice",
   },
   {
@@ -31,47 +30,55 @@ let questions = [
   },
 ];
 
+let badgeURL = (licenseChoice) => {
+  if (licenseChoice === "MIT") {
+    badgeURL = "https://img.shields.io/badge/License-MIT-yellow.svg";
+  } else if (licenseChoice === "IBM") {
+    badgeURL = "https://img.shields.io/badge/License-IPL%201.0-blue.svg";
+  } else if (licenseChoice === "MOZILLA") {
+    badgeURL = "https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg";
+  } else if (licenseChoice === "ODbL") {
+    badgeURL = "https://img.shields.io/badge/License-ODbL-brightgreen.svg";
+  }
+};
+
 inquirer.prompt(questions).then((answers) => {
-  // console.log(answers);
-  const api = `https://api.github.com/users/${answers.username}/events/public`;
-  const avatarURL = `https://avatars.githubusercontent.com/${answers.username}`;
-  console.log(avatarURL);
-  axios.get(api).then((res) => {
-    const repoURL = res.data[1].repo.url;
-    const projectName = res.data[1].repo.name;
-    const userEmail = res.data[1].payload.commits;
-    console.log(repoURL);
-    console.log(projectName);
-    console.log(userEmail);
-
-    let readmeTemplate = `
-  # Table of content
-
-  ## Project Name
-  ${projectName}
-
-  ## Project URL
-  ${repoURL}
+  let readmeTemplate = `
+  # Project Name
+  ${answers.projectName}
 
   ## Short Description
   ${answers.shortDescr};
 
-  ## License Choice
-  ${answers.licenseChoice};
+  ## Table of content
 
-  ## Install Command
+  - Installation
+  - Usage
+  - License
+  - Contributions
+  - Test Command
+  - Questions
+  
+  ### Installation
   ${answers.installCommand};
 
-  ## Test Command
-  ${answers.testCommand}
+  ### Usage
 
-  ## Email
-  ${userEmail}
-    
-  ![Avatar](${avatarURL})`;
-    // console.log(readmeTemplate);
-    fs.writeFile("readme.md", readmeTemplate, (err) => {
-      if (err) throw err;
-    });
+  ### License
+  ${answers.licenseChoice};
+  ![License](${badgeURL};
+
+  ### Contributions
+
+  ### Tests
+  ${answers.testCommand};
+
+  ### Questions
+  ${`Feel free to email (mailto: tracyvy88@gmail.com)`};
+
+  `;
+
+  fs.writeFile("readme.md", readmeTemplate, (err) => {
+    if (err) throw err;
   });
 });
