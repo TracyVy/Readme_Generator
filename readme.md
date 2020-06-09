@@ -3,16 +3,16 @@
   Readme Generator
 
   ## Short Description
-  This app helps you create a readme markdown file for your project
+  This app creates a readme markdown file for your project
 
   ## Table of content
 
   - Installation
   - Usage
   - License
+  - Tests
+  - Tutorial video
   - Contributors
-  - Test Command
-  - Questions
   
   ### Installation
   npm install inquirer
@@ -21,16 +21,16 @@
   node index.js
 
   ### License
-  ![License](https://img.shields.io/badge/License-IPL%201.0-blue.svg)
+  ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+  
+  ### Tests
+  npm run test
+
+  ### Tutorial video
+
   
   ### Contributors
   ![Avatar](https://avatars.githubusercontent.com/TracyVy)
   TracyVy
   
-  ### Tests
-  undefined
-
-  ### Questions
-  Feel free to email: tracyvy88@gmail.com
-
   
