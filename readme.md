@@ -3,35 +3,34 @@
   Readme Generator
 
   ## Short Description
-  This creates a markdown file for your project.;
+  This app helps you create a readme markdown file for your project
 
   ## Table of content
 
   - Installation
   - Usage
   - License
-  - Contributions
+  - Contributors
   - Test Command
   - Questions
   
   ### Installation
-  npm install inquirer;
+  npm install inquirer
 
   ### Usage
-  node index.js;
+  node index.js
 
   ### License
-  MIT;
-  ![License](https://img.shields.io/badge/License-MIT-yellow.svg);
-
-  ### Contributions
-  TracyVy;
-  https://avatars.githubusercontent.com/TracyVy;
-
+  ![License](https://img.shields.io/badge/License-IPL%201.0-blue.svg)
+  
+  ### Contributors
+  ![Avatar](https://avatars.githubusercontent.com/TracyVy)
+  TracyVy
+  
   ### Tests
-  undefined;
+  undefined
 
   ### Questions
-  Feel free to email (mailto: tracyvy88@gmail.com);
+  Feel free to email: tracyvy88@gmail.com
 
   

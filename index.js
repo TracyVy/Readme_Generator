@@ -23,6 +23,11 @@ let questions = [
     name: "runCommand",
   },
   {
+    type: "input",
+    message: "What command will test the app?",
+    name: "testCommand",
+  },
+  {
     type: "list",
     message: "What kind of license should you have?",
     choices: ["MIT", "IBM", "MOZILLA", "ODbl"],
@@ -49,42 +54,42 @@ inquirer.prompt(questions).then((answers) => {
   };
 
   const avatarURL = `https://avatars.githubusercontent.com/${answers.username}`;
+
   let readmeTemplate = `
   # Project Name
   ${answers.projectName}
 
   ## Short Description
-  ${answers.shortDescr};
+  ${answers.shortDescr}
 
   ## Table of content
 
   - Installation
   - Usage
   - License
-  - Contributions
-  - Test Command
-  - Questions
+  - Tests
+  - Tutorial video
+  - Contributors
   
   ### Installation
-  ${answers.installCommand};
+  ${answers.installCommand}
 
   ### Usage
-  ${answers.runCommand};
+  ${answers.runCommand}
 
   ### License
-  ${answers.licenseChoice};
-  ![License](${badgeURL(answers.licenseChoice)});
-
-  ### Contributions
-  ${answers.username};
-  ${avatarURL};
-
+  ![License](${badgeURL(answers.licenseChoice)})
+  
   ### Tests
-  ${answers.testCommand};
+  ${answers.testCommand}
 
-  ### Questions
-  ${`Feel free to email (mailto: tracyvy88@gmail.com)`};
+  ### Tutorial video
 
+  
+  ### Contributors
+  ![Avatar](${avatarURL})
+  ${answers.username}
+  
   `;
 
   fs.writeFile("readme.md", readmeTemplate, (err) => {
