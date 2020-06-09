@@ -3,7 +3,7 @@
   Readme Generator
 
   ## Short Description
-  This dynamically creates a markdown file for your project;
+  This creates a markdown file for your project.;
 
   ## Table of content
 
@@ -18,15 +18,18 @@
   npm install inquirer;
 
   ### Usage
+  node index.js;
 
   ### License
-  IBM;
-  ![License](https://img.shields.io/badge/License-IPL%201.0-blue.svg;
+  MIT;
+  ![License](https://img.shields.io/badge/License-MIT-yellow.svg);
 
   ### Contributions
+  TracyVy;
+  https://avatars.githubusercontent.com/TracyVy;
 
   ### Tests
-  npm run test;
+  undefined;
 
   ### Questions
   Feel free to email (mailto: tracyvy88@gmail.com);

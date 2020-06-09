@@ -13,6 +13,16 @@ let questions = [
     name: "shortDescr",
   },
   {
+    type: "input",
+    message: "What command should be run to install dependencies?",
+    name: "installCommand",
+  },
+  {
+    type: "input",
+    message: "What command will invoke this app to run?",
+    name: "runCommand",
+  },
+  {
     type: "list",
     message: "What kind of license should you have?",
     choices: ["MIT", "IBM", "MOZILLA", "ODbl"],
@@ -20,29 +30,25 @@ let questions = [
   },
   {
     type: "input",
-    message: "What command should be run to install dependencies?",
-    name: "installCommand",
-  },
-  {
-    type: "input",
-    message: "What command should be run to run tests?",
-    name: "testCommand",
+    message: "What is your Github username?",
+    name: "username",
   },
 ];
 
-let badgeURL = (licenseChoice) => {
-  if (licenseChoice === "MIT") {
-    return "https://img.shields.io/badge/License-MIT-yellow.svg";
-  } else if (licenseChoice === "IBM") {
-    return "https://img.shields.io/badge/License-IPL%201.0-blue.svg";
-  } else if (licenseChoice === "MOZILLA") {
-    return "https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg";
-  } else if (licenseChoice === "ODbL") {
-    return "https://img.shields.io/badge/License-ODbL-brightgreen.svg";
-  }
-};
-
 inquirer.prompt(questions).then((answers) => {
+  let badgeURL = (licenseChoice) => {
+    if (answers.licenseChoice === "MIT") {
+      return "https://img.shields.io/badge/License-MIT-yellow.svg";
+    } else if (answers.licenseChoice === "IBM") {
+      return "https://img.shields.io/badge/License-IPL%201.0-blue.svg";
+    } else if (answers.licenseChoice === "MOZILLA") {
+      return "https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg";
+    } else if (answers.licenseChoice === "ODbL") {
+      return "https://img.shields.io/badge/License-ODbL-brightgreen.svg";
+    }
+  };
+
+  const avatarURL = `https://avatars.githubusercontent.com/${answers.username}`;
   let readmeTemplate = `
   # Project Name
   ${answers.projectName}
@@ -63,13 +69,15 @@ inquirer.prompt(questions).then((answers) => {
   ${answers.installCommand};
 
   ### Usage
+  ${answers.runCommand};
 
   ### License
-  [![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)  
-`[![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)`
-
+  ${answers.licenseChoice};
+  ![License](${badgeURL(answers.licenseChoice)});
 
   ### Contributions
+  ${answers.username};
+  ${avatarURL};
 
   ### Tests
   ${answers.testCommand};
